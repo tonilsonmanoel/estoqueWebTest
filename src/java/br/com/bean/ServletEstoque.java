@@ -9,6 +9,7 @@ import br.com.DAO.ManterUsuario;
 import br.com.controle.Estoque;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,12 @@ public class ServletEstoque extends HttpServlet {
             ManterUsuario mu = new ManterUsuario();
             mu.inserir(et);
             
+            request.setAttribute("NOME", et.getNome());
+            request.setAttribute("PRECO", et.getValor());
+            request.setAttribute("CAT", et.getCategoria());
             
+            RequestDispatcher rd = request.getRequestDispatcher("Resultado.jsp");
+            rd.forward(request, response);
         }
     }
 

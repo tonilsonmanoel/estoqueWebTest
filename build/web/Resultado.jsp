@@ -12,6 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%  
+            String nome = request.getAttribute("NOME").toString();
+            String categoria = request.getAttribute("CAT").toString();
+            String pre = request.getAttribute("PRECO").toString();
+            
+    
+            %>
+            <h2>
+                Nome: <%=nome%><br>
+                Preco: <%=pre%><br>
+                categoria: <%=categoria%>
+            </h2>
+            
+    
     </body>
 </html>
